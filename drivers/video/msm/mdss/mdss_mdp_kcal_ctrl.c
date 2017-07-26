@@ -396,19 +396,12 @@ static ssize_t kcal_enable_store(struct device *dev,
 
 	lut_data->enable = kcal_enable;
 
-<<<<<<< HEAD
 	if (mdss_mdp_kcal_is_panel_on()) {
 		mdss_mdp_kcal_update_pcc(lut_data);
 		mdss_mdp_kcal_update_pa(lut_data);
-		mdss_mdp_kcal_update_igc(lut_data);
+		//mdss_mdp_kcal_update_igc(lut_data);
 	} else
 		lut_data->queue_changes = true;
-=======
-	mdss_mdp_kcal_update_pcc(lut_data);
-	mdss_mdp_kcal_update_pa(lut_data);
-	//mdss_mdp_kcal_update_igc(lut_data);
-	mdss_mdp_kcal_display_commit();
->>>>>>> b383c2b... msm: mdss: KCAL: disable igc update
 
 	return count;
 }
@@ -606,7 +599,7 @@ static int fb_notifier_callback(struct notifier_block *nb,
 }
 #endif
 
-static int __devinit kcal_ctrl_probe(struct platform_device *pdev)
+static int kcal_ctrl_probe(struct platform_device *pdev)
 {
 	int ret;
 	struct kcal_lut_data *lut_data;
@@ -679,7 +672,7 @@ out_notifier:
 	return ret;
 }
 
-static int __devexit kcal_ctrl_remove(struct platform_device *pdev)
+static int kcal_ctrl_remove(struct platform_device *pdev)
 {
 	struct kcal_lut_data *lut_data = platform_get_drvdata(pdev);
 

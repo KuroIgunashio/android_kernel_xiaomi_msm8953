@@ -301,6 +301,11 @@ CONFIG_RWSEM_SPIN_ON_OWNER=y
 CONFIG_FREEZER=y
 
 #
+# KCAL
+#
+CONFIG_FB_MSM_MDSS_KCAL_CTRL=y
+
+#
 # Platform selection
 #
 # CONFIG_ARCH_THUNDER is not set
