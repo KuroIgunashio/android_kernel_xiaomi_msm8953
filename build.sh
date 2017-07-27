@@ -60,6 +60,7 @@ make_name() {
 }
 export_it() {
   mv $zip_name ../redminote4
+  rm zImage
   cd $releases_folder
 }
 
